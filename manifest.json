@@ -1,0 +1,813 @@
+{
+  "name": "dsh-unrestricted-printing",
+  "version": "0.0.1",
+  "generatedAt": "2026-10-27T16:02:29.727Z",
+  "fileCount": 115,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "2babad98386c9dc5e4984056d4bcb922692c94138b934d9240c282c5cb3dbc30",
+      "bytes": 158,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": ".github/workflows/publish-npm.yml",
+      "sha256": "f8597c78e40eff39214d7f2f7c396b9bdcdf2f1401a172d61ad697c44b888d90",
+      "bytes": 3136,
+      "category": "ci",
+      "shipped": false
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "5042ab05d91de661bbb23d7f94853616d24773b470d5b851d749c7bd17bfacd1",
+      "bytes": 5162,
+      "category": "ci",
+      "shipped": false
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "abd7dcc606f7980cb212b820d70f2714d81daf6b2406f7186444492e56c08764",
+      "bytes": 383,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "eea4896664283229b596fec5b753807b9e51594917bc2a8c9c0c515fd041237e",
+      "bytes": 201447,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "0198a0fa2847cd215920306e7c64f1ba624d61f4de692996ad1751df6ba0528e",
+      "bytes": 19395,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "bdb82112b106aeb758ce81a15934c2ee954c67c8e36d9329e32018ff1ec5ad35",
+      "bytes": 1089,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "LoRA/README.md",
+      "sha256": "c0d3a113c032280a246190c3b3823ec4bfeed6862d37d1138082ec9fdd818560",
+      "bytes": 7920,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/acceptance/acceptance-checklist.md",
+      "sha256": "8724465153a5a9ae375b926f55b6a5f056cb004e19f193cb3a67f257d7b60f2b",
+      "bytes": 3003,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/configs/base-lora.json",
+      "sha256": "2e22955f6e34f4f549469fd0369017615e6dbead0040b1750ec8285713e8a08c",
+      "bytes": 1376,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/configs/id-lora.json",
+      "sha256": "0ae5de6840ea08659da8791536ae140683a9a947fd5c4b8e7225108f36b1ec68",
+      "bytes": 1311,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/configs/pipeline.json",
+      "sha256": "82be78856e2fc38f4a49595d85e36c9ba521d3d8bf4dafc3a5a7f81a680678a6",
+      "bytes": 5430,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/scripts/sd-lora-pack.ps1",
+      "sha256": "f7ae846ba1968d9f2ea24d6c4ef5d7a895c84f00d41317eb1ded8d7a17cebade",
+      "bytes": 4762,
+      "category": "tool",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/templates/caption-example.txt",
+      "sha256": "4296e6055bbb3442300ba86b555394bfd73bf9271e0d55dc002c38e2b9143e99",
+      "bytes": 546,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "LoRA/templates/dataset-README.md",
+      "sha256": "fb9b0d3dbf182799f51ed2c58181f1e2d6e1189c3537bb0dc80764a1950651fa",
+      "bytes": 2153,
+      "category": "doc",
+      "shipped": false
+    },
+    {
+      "path": "README.md",
+      "sha256": "67237c6771bdb5a636240576525be2b768be486cebedddcc95a1149108b9a499",
+      "bytes": 96875,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "backend-dispatcher.ps1",
+      "sha256": "9717db63904a703beafade6734a7e764429b05515c7eeac869433922f5180d27",
+      "bytes": 12037,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "cordis.patch.yml",
+      "sha256": "d1c2b353b13c92987f61455a49889732bda13d983cee9cc0e5a8d14e02d5ea41",
+      "bytes": 395,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-c-paramform.jpg",
+      "sha256": "4c701f182850b3c3726ea0c02e2d0276e1b705a0342591db6b8166b7f7e8f5a3",
+      "bytes": 50795,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-img2img.jpg",
+      "sha256": "c88e41a47fada9c959a8bffa5196aad7c5e2a9d89b9eb816f4a2b37847369ba9",
+      "bytes": 42797,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-style-cyberpunk.jpg",
+      "sha256": "6f9918a848cf5ece1eea0cd089ade0d1a08e728a851dcedb1f38e29ad8a6143f",
+      "bytes": 110636,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-style-dongya-face.jpg",
+      "sha256": "5cc5601b7d4fc17c511591203ea9043a0afb56b39b7ba88b203008e74c5bcf3d",
+      "bytes": 58885,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-style-guofeng.jpg",
+      "sha256": "8d276bbb46697e9fc365e75a871faea2cb1ffc6a7d4959d8d2cb9b24bbd8e348",
+      "bytes": 85798,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-style-realistic.jpg",
+      "sha256": "816a223eba369395c6d034b17ec69bb722eb2d2ddeebc90b97a0bb8ce515af57",
+      "bytes": 60073,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-style-youcai.jpg",
+      "sha256": "cae3e3700bdd51f9df98c031324fea78720b73a1551e6a69b7898368c33062aa",
+      "bytes": 87235,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-txt2img-anime.jpg",
+      "sha256": "5461109a09ccffcb1996c4f20b8a2ec7c542720b603c3aabe61299d18805843c",
+      "bytes": 90929,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/assets/demo-txt2img.jpg",
+      "sha256": "4ee780aa994526fed49735d71e0d56622be77c62d812e456843127d5bf82459a",
+      "bytes": 43408,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/deps-report.md",
+      "sha256": "1c9abbe7913342091811f9f8f8ddff4584fcde631f2bd5cd18d34d2bfb1a8a95",
+      "bytes": 4069,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/lora-cross-model-plan.md",
+      "sha256": "3b7450f08bf2f17db24658c7b6f33ea1501086358233e886b0caebb363be2812",
+      "bytes": 15174,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/lora-quality-fix-2026-10-25.md",
+      "sha256": "0eb43494048c16d0170ff720d86911a2fb5cf3730a953a5c98cddcfbba7b5065",
+      "bytes": 10904,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "docs/models-loras.md",
+      "sha256": "9c8863375f0cb4f44cf63ff90aad208b212ac69207647c88e6667e5ece570f2d",
+      "bytes": 11107,
+      "category": "doc",
+      "shipped": true
+    },
+    {
+      "path": "gateway.config.json",
+      "sha256": "a741c19338917a4d2a624f9f132b54f98ea685fe55d777a491fe316912fd562b",
+      "bytes": 1381,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/comfy-extra-model-paths.yaml",
+      "sha256": "b365e50278a90ed89636d22d3a6bca2dee1003da497b839f8254360714c354ef",
+      "bytes": 441,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/index.js",
+      "sha256": "8066c4a602e37f762c7482b8a6b3e5cef2dea1de111cee257b00b4a2d54cc144",
+      "bytes": 3276,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/breaker.js",
+      "sha256": "0d0cd908f2333cd7b33e77e3617e01cb276d4db41329e21695acba5ea77c8a7d",
+      "bytes": 3005,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/caption.js",
+      "sha256": "fa7f10917c49b36798d117e8f9b77c0a211c827c6c0e88387961064e0f863b3f",
+      "bytes": 16699,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/config.js",
+      "sha256": "9a346bc9b464aaf2ac6d777feffa2e642d4470facb67cd059ba07ad44d06e1ab",
+      "bytes": 19959,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/dataset.js",
+      "sha256": "e919f60ce863d2cba18c865f344e198a6b93f41217334a4d1be96e295233433c",
+      "bytes": 20777,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/engine-manager.js",
+      "sha256": "43bef9e5d1aa14e78d666bcbd0edff99d8561f566d4da2d8372d125d97d56084",
+      "bytes": 14759,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/engines.js",
+      "sha256": "d639e1eb14938da8a1de62925481736bbc982fd432e8eec6e7af8bf25a750acb",
+      "bytes": 28167,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/ingest.js",
+      "sha256": "aa6ddb23d2e19bb9d1f7632e385888d9b43e4db071ffb9723c67ac752ba0c51a",
+      "bytes": 13305,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/logger.js",
+      "sha256": "72eda1eafe564671d6ad686ad8ae12d85608f3065fce02f2a2b4d39f23cc2403",
+      "bytes": 4336,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-cli.js",
+      "sha256": "eafeb833f92310771754a69ff4590ddb69d3f362ff2737f770bbab2e69fb8935",
+      "bytes": 9679,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-inspect-cli.js",
+      "sha256": "c13cc1198a27dff67f5f219e467dba0a4a4fb7fa979bc10e7c0918ca5d40d553",
+      "bytes": 2789,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-inspect.js",
+      "sha256": "719ad620e26be318a86b6e0a37653a3d729695d092df3721912534b9c45f41fc",
+      "bytes": 8769,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-name-fix.js",
+      "sha256": "b1b3123df13aa821228800f5185ae224346b482de856fc05b79e46261d88c6f8",
+      "bytes": 12296,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-naming.js",
+      "sha256": "45ccf2133b23a70cf5d1d7bc85b1703bc9c2aeab6869d4e94ec972669c0955ba",
+      "bytes": 9705,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-registry.js",
+      "sha256": "64cbd4942ebd76dffc653af834c591b9513ea16f8a61cb5079c8bd854851edbd",
+      "bytes": 10684,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-runner.js",
+      "sha256": "45e3518af9a125d2beaaf86f25a6b32cbc335a3c54ecd78464267bbe6225b50e",
+      "bytes": 11949,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-segment.js",
+      "sha256": "22fbf024ada22c4c8276c8f3e68ac9972a22b025b40a6efdd5451779cb9a60d7",
+      "bytes": 10632,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/lora-train.js",
+      "sha256": "25c1dd8b9a543032499c7b5d9d3c23f1df1d9a0d5c70002926e455e2109dc23b",
+      "bytes": 32513,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/models.js",
+      "sha256": "e77063eeb270f139f07f26857f89e5a7b05bac76fbb8809d4f129454ae31b55b",
+      "bytes": 8556,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/monitor.js",
+      "sha256": "b1400142742cfdc723661ab2020362d4d1f703fe6de3f915d4698ffcf0641a61",
+      "bytes": 9512,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/num.js",
+      "sha256": "0a6d586cb492adbc73ecfc3f2ca1d66e79e67aacfe343e7b0eb7c34e4bcaf6a3",
+      "bytes": 1551,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/official-cli.js",
+      "sha256": "c2bb5ed4e56025ee02807e294a965a8891a4800433d92d4018278221476c3aaa",
+      "bytes": 5495,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/official-pipeline.js",
+      "sha256": "7d14d04d760c5c61723385083171ac223f40cea8aabe621e3c8310bf7b56f9c4",
+      "bytes": 17157,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/prep_official.py",
+      "sha256": "deb5a28dfb5dededf997760f93ec04288a556874d0fa2a3ae03b7df9cd980c43",
+      "bytes": 7983,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/ros2.js",
+      "sha256": "7f1d88d6ad5ce1f37f6c22e9a20a75ef38de059a797c59d6408b1db3c3b2942d",
+      "bytes": 11899,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/store.js",
+      "sha256": "f3e78e00f627d83508028ddf38038c3b8decc7d59da22658c9d6a244b51be122",
+      "bytes": 8739,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/training-profiles.js",
+      "sha256": "cd1aa1227588454254ea1f0865783c2f22277db8551ceaac78b2db1456f30c70",
+      "bytes": 15439,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/training.js",
+      "sha256": "833845a9041b07c28a385dca167a7d5f0d4d03b44a4236a7e3f27cc5eba940db",
+      "bytes": 16180,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/lib/vram-guard.js",
+      "sha256": "4c38569d54ef5f62483270482f4a48f6a01135b28e2119a2a238fa091e1ac7d6",
+      "bytes": 5245,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/server.js",
+      "sha256": "153b43d6b7bf48b54bfac7fa78a027ecd5edc392723a15597dac8f9f3849bce5",
+      "bytes": 59686,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/breaker.test.mjs",
+      "sha256": "8f8c314ab66277ad234545317ff64266eec94b7189b7af10200e7c62b2949085",
+      "bytes": 5632,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/caption.test.mjs",
+      "sha256": "ad7190d2d6894078c3899ff71855ba15c471d10a5e3bb99024465dc9aece5893",
+      "bytes": 8353,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/dataset.test.mjs",
+      "sha256": "60dbdb2beb9216526d2578524d8d9bbf9abd96ae1bf99e96eea0c0ad23e86caa",
+      "bytes": 11533,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/gateway-api.test.mjs",
+      "sha256": "4d6e7835fb2b80210104c36ec91225dbf691b32fa6a51b34623c396276c5f0b8",
+      "bytes": 21428,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/helpers/harness.mjs",
+      "sha256": "427a7ed908a7800d34410b3bb2b2fd8acb886f2909aa0cf2014022b6dd68909b",
+      "bytes": 6821,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/helpers/mock-engines.mjs",
+      "sha256": "2ecce081014d0b2485ce3aaa50b3b130a318c1eafc3ed94a350a286ed1787736",
+      "bytes": 12003,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/ingest.test.mjs",
+      "sha256": "edb0d36fa7a91bb7b8faabfb6ed80f20461cf9495a355303e4900a9906b66653",
+      "bytes": 8729,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-api.test.mjs",
+      "sha256": "25a549e34daee81f36cca7bc1b8f147c4f930b803a4d3d7444d54531f77618dd",
+      "bytes": 7073,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-cli.test.mjs",
+      "sha256": "03e709fc17286702da925e49f4777b657dd02f549febc1bf81236844aa96042e",
+      "bytes": 4970,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-configs.test.mjs",
+      "sha256": "a70226ca98d29bdee23530ab9d63cc069f3c3fb9103b609bc4684820a64f738c",
+      "bytes": 6603,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-name-fix.test.mjs",
+      "sha256": "5b8ccba64c23566d3b4d25ff4a2a21f64f2edc2e33be07b301fdb890a39e5035",
+      "bytes": 8451,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-naming.test.mjs",
+      "sha256": "d50c7399a7f079d9be63bb1d70b4d3ae4383d52dd777da121e6d4545286193ce",
+      "bytes": 6040,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-registry.test.mjs",
+      "sha256": "c5ed5bfe8ff2ce329a5e84eea041dd81258a3a41b23a3e3e74e94e010ce1761c",
+      "bytes": 8116,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-runner.test.mjs",
+      "sha256": "623a7d9e25f72595c2eb8206ad8ff34540ce17091c3e1dd6296f578f7968dc74",
+      "bytes": 13377,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-segment.test.mjs",
+      "sha256": "1782ddf3a7b188e123e57bdbc849be2ea4ae40bd03e1124ba4a296d79e0fafcf",
+      "bytes": 9171,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/lora-train.test.mjs",
+      "sha256": "79bb9afc8a117a483ee40c7de12fa6aa63564b6909a828c907b92e3fba8a7a9e",
+      "bytes": 16436,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/num.test.mjs",
+      "sha256": "3fcaad6ee2659183d11398e34b15d519447c4c405049758b117bb64f16c56de6",
+      "bytes": 1872,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/oom-ladder.test.mjs",
+      "sha256": "9a11695a5b3a6ee712e6f2f9dd04917315860bd067706915c3443a94eeb50f79",
+      "bytes": 11314,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/queue-oom.test.mjs",
+      "sha256": "df856e711c648455f748ed9c98fd3d055e2673d1a2511e9a97d4088e0978d096",
+      "bytes": 8835,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/ros2-monitor.test.mjs",
+      "sha256": "f1737e373767bfa78249e9addff7ca865879ab9135f218a658a0bb57742fdba7",
+      "bytes": 8880,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/routing.test.mjs",
+      "sha256": "c2bd9c60d1df926d78b31f9c14d4746aa67051043befd280f94823f3a150e8aa",
+      "bytes": 5491,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/state-machine.test.mjs",
+      "sha256": "79972c119a991cadc78cdfe95a1b60e9b01208f97c4a2e3083d432417ea0c1f3",
+      "bytes": 6416,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/training-profiles.test.mjs",
+      "sha256": "71b711e005872f2084519a6d22aa263f22108466c1685f5279daedc00d67eed0",
+      "bytes": 7953,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/test/vram-guard.test.mjs",
+      "sha256": "c2d50d4ee4bfd9c865e50c94881cb7d4c21f1061ba25e8224c443aa92bc4d631",
+      "bytes": 4275,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "gateway/tools/bootstrap-downloads.ps1",
+      "sha256": "ddaa26fb378d05ae8f86c1e6f31114acce0f2085c0daa23013d96f7fa8ebd25a",
+      "bytes": 15132,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/tools/check-deps.ps1",
+      "sha256": "a0816d064fcad40fb31479e2938b153e50f03b511508361367d9f1c76a431786",
+      "bytes": 18384,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/tools/fix-bom.ps1",
+      "sha256": "afd36b675d2f06a8cc453445f149d57ef0e638f2accb98994184555715c61fc1",
+      "bytes": 978,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gateway/tools/ui-gateway-verify.ps1",
+      "sha256": "11857a684d574e4090b98e9c6af4822eabba28f045e4a34d01347e25acd27ca2",
+      "bytes": 31379,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "gen-manifest.mjs",
+      "sha256": "549add4ba67e9e9f789b5293147d6a24d603afb72962035578412e0f2c4f84a5",
+      "bytes": 6477,
+      "category": "dev",
+      "shipped": false
+    },
+    {
+      "path": "install-sd.ps1",
+      "sha256": "98988573a59bc65455fbd03d298842e2e8cf993da3f2e085be7c0a2580404179",
+      "bytes": 50881,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "pack-github.ps1",
+      "sha256": "8e84f8f3f3a7462f3dfdaf93f5f948810f61492a2eec20db607795fe1520ba05",
+      "bytes": 7219,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "package.json",
+      "sha256": "55765ce5db5b7cfa8b098fbc395f89546d898ae30eb40e1bb35669bc0933f10e",
+      "bytes": 4314,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "publish-npm.ps1",
+      "sha256": "c169adf833f005e39bad245bb6b69f2989a028e63c8403477b24e639510a6f71",
+      "bytes": 6908,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "sd-addtext-composite.py",
+      "sha256": "62479a9bd9ea7173fcd192c9668b5a56bf60373260ef1b7aa8f73e331ed99486",
+      "bytes": 6133,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "sd-auto-mask.py",
+      "sha256": "a91bb85afb0e9429ab6aebbdc44922031be4e7285e7ebf797afc1cee5b1acf13",
+      "bytes": 49300,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "sd-bridge.js",
+      "sha256": "fbeee2618f6df1714e9d8485c2107de4339b93b86e006a80fae83e5f8df5d8cb",
+      "bytes": 286199,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "sd-direct.ps1",
+      "sha256": "c575531e4b3b6a36cfef819f53fae9af1dab7902d0d13aaeea75d17cf3ba6ab0",
+      "bytes": 46691,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "sd-inject.ps1",
+      "sha256": "60af4a270501a6aa1b752fdbd37d2d0552f04a3061ee3679e40243fbfd624250",
+      "bytes": 405953,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "sd-mask-qa.py",
+      "sha256": "3eeccfea9ce87b386f477886a5605e8d48c225f1f6b755a6d07df2640afe2ffc",
+      "bytes": 6737,
+      "category": "runtime",
+      "shipped": true
+    },
+    {
+      "path": "tests/acceptance.mjs",
+      "sha256": "2a694389e61faef1ca80ea27315d3d5c1d82753e4d8304aa36fe49b21eae2eeb",
+      "bytes": 17570,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "tests/smoke-skill.mjs",
+      "sha256": "1fe35db7099e179b091b75ea6d50c2b015eefea05495495e46078e194982a189",
+      "bytes": 97389,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-automask-retry.ps1",
+      "sha256": "124468c0d5cc598ee7f9262b2fc19952342422211a13e0418bf773f74e567f4c",
+      "bytes": 4835,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-install-catalog.mjs",
+      "sha256": "3bc4b65f2f4b726166656c823f18c119b8fadf4b805eda90020619b4720bc309",
+      "bytes": 8529,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-install-record.mjs",
+      "sha256": "77f925592a919c7d4bfa68f1a306140e17ab8e2aed046207d14a3804bc586273",
+      "bytes": 2888,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-lora-name-encoding.ps1",
+      "sha256": "44d64f8463ffc04bc9b64a9d865bdbb03b343fc093328d777f06d97a4c074512",
+      "bytes": 4283,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-mask-qa.ps1",
+      "sha256": "d41b7b6e9721a4bd8dc02632aeaf0581b6b0747f52af5b51c5a591537e639813",
+      "bytes": 5207,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-region-mask.ps1",
+      "sha256": "2600d61096771154d789fc48356fb2ecf87f58b0441c62768b5a4a88ce748845",
+      "bytes": 6620,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-settings.mjs",
+      "sha256": "02145aff48171051b7dd14f0fab5d966c22ad529ac261c4d2e19a9b4d39c0ed1",
+      "bytes": 3042,
+      "category": "other",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-trailing-comma.ps1",
+      "sha256": "9971ee2809bb98f1523d8eb56caacc5cb3b2c2c71894a3ef71443e2230814a4e",
+      "bytes": 3226,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-vlm-cleanup.ps1",
+      "sha256": "4cbadd3fc05aa7a40d61511e39a0d254c4fc2082f51d37d257080ca936068e14",
+      "bytes": 5720,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "tests/test-vram-release.ps1",
+      "sha256": "284932ddf1555755a58065d3ac39e2d5fd9b831102e8fdf0e871bdd74ac724d3",
+      "bytes": 3462,
+      "category": "runtime",
+      "shipped": false
+    },
+    {
+      "path": "verify-integrity.mjs",
+      "sha256": "997826a10ae91d7f1a3585d8f8b139d1a80d4d5f82d8df68e6f575261f2af415",
+      "bytes": 11918,
+      "category": "other",
+      "shipped": false
+    }
+  ]
+}

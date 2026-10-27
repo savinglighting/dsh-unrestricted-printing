@@ -1,0 +1,20 @@
+# 依赖与产物
+node_modules/
+*.tgz
+*.log
+dist/
+
+# 本机运行产物（工作区化后默认落在会话工作区，仓库里不保留）
+SD-Picture/
+ref/
+tmp/
+
+# 系统杂物
+.DS_Store
+Thumbs.db
+
+# 误落的 PowerShell 模块分析缓存（某次子进程把 HOME 指到了仓库里）
+Microsoft/
+
+# 误落进仓库目录的无关文档（2026-10-16）
+你们要学，我便教/

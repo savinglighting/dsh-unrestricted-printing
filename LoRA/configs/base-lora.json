@@ -1,0 +1,42 @@
+{
+  "profile": "base",
+  "title": "Base-LoRA（画风/服装/场景，LoCon 覆盖卷积）",
+  "role": "style",
+  "network_module": "lycoris.kohya",
+  "network_args": ["algo=lora", "conv_dim=4", "conv_alpha=2"],
+  "network_dim": 32,
+  "network_alpha": 16,
+  "learning_rate": 0.00007,
+  "max_train_steps": 800,
+  "resolution": 512,
+  "clip_skip": 2,
+  "optimizer": "AdamW8bit",
+  "optimizer_fallback": "AdamW",
+  "mixed_precision": "fp16",
+  "enable_bucket": true,
+  "save_model_as": "safetensors",
+  "bulky_fallback": {
+    "network_dim": 16,
+    "note": "成品体积过大时用这一档（或减少卷积覆盖）"
+  },
+  "guard": {
+    "min_dim": 16,
+    "max_dim": 48,
+    "min_alpha": 1,
+    "max_alpha": 128,
+    "min_lr": 0.00002,
+    "max_lr": 0.0002,
+    "min_steps": 400,
+    "max_steps": 1200,
+    "min_resolution": 512,
+    "max_resolution": 768
+  },
+  "dataset": {
+    "images": { "min": 15, "max": 30 },
+    "face_closeup_ratio": { "max": 0.25, "hint": "半身·全身·场景为主，减少脸部特写占比，防止 Base 学到身份" },
+    "reg_images": { "min": 5, "max": 10 }
+  },
+  "expected_size_mb": { "min": 30, "max": 90 },
+  "infer_weight": { "fixed": null, "min": 0.3, "max": 0.7, "default": 0.4, "adjustable": true },
+  "caption_rule": "只描述场景与可变元素；禁止角色名 / 身份 token / 触发词 / 作品名 / <lora:> 语法"
+}

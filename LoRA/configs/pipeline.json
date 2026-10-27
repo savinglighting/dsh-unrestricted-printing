@@ -1,0 +1,84 @@
+{
+  "pipeline": "one-click-lora-train",
+  "version": 1,
+  "architecture": {
+    "mode": "dual-lora-decoupled",
+    "tracks": ["id", "base"],
+    "order": "id → base（串行，共用一次采集结果）",
+    "why": "ID 只锁脸且刻意低秩；Base 承载画风服装场景。换装只调 Base，脸部保持稳定。"
+  },
+  "stages": [
+    { "stage": "collect", "title": "采集归一", "detail": "本地路径 / 网址 / 参考图统一成一份清单；格式白名单、精确去重、短边标记、来源留痕" },
+    { "stage": "caption", "title": "自动标注", "detail": "优先复用同名 .txt；否则本机视觉模型标注（指令层禁身份词，输出再净化一遍）" },
+    { "stage": "split", "title": "自动拆轨", "detail": "特写/头肩 → ID；半身/全身/场景 → Base；判不清按缺口交替补齐" },
+    { "stage": "naming", "title": "命名", "detail": "名字可自定义；清洗破坏 <lora:名字:权重> 语法的字符；同名自动版本化" },
+    { "stage": "dataset", "title": "数据集落盘", "detail": "kohya 目录（重复次数_概念名）+ 同名标注 + 可选 reg 目录" },
+    { "stage": "validate", "title": "训练前硬校验", "detail": "配对 / 空标注 / 身份 token / 短边 / 脸部特写占比 / 两轨素材下限，不通过不开训" },
+    { "stage": "train", "title": "串行训练", "detail": "id → base，各走各的档位；前一轨失败立即中断并给分类原因" },
+    { "stage": "deliver", "title": "投递登记刷新", "detail": "投到 SD 的 LoRA 目录 + 写登记表 + 触发 A1111 重扫（刷新失败不算失败）" }
+  ],
+  "dataset": {
+    "layout": "<root>/<repeat>_<concept>/ 图片 + 同名.txt；可选 <root>/reg/1_<concept>_reg/",
+    "images_per_track": { "min": 15, "max": 30 },
+    "reg_images": { "min": 5, "max": 10 },
+    "caption_rules": {
+      "describe": ["场景", "服装", "构图", "光照", "姿态", "表情"],
+      "forbid": ["角色名", "身份 token", "触发词", "作品名", "系列名", "<lora:...> 语法"],
+      "good_example": "woman in garden, sunlight, green dress, upper body",
+      "bad_example": "sks woman, <lora:xxx>, my OC Alice in garden"
+    },
+    "hard_checks": [
+      { "id": "pairing", "detail": "图片与标注一一配对，缺失即报错并指出文件名" },
+      { "id": "empty-caption", "detail": "空标注即报错（会学成纯背景）" },
+      { "id": "identity-token", "detail": "出现在 100% 标注里的非通用词 → 拦；80–99% → 警告" },
+      { "id": "short-side", "detail": "最短边 < 512 → 报错，先放大或裁剪" },
+      { "id": "face-closeup-ratio", "detail": "ID ≥ 0.6；Base ≤ 0.25（超限硬拦）" }
+    ]
+  },
+  "naming": {
+    "default_public_name": "从来源/概念推导（会在返回里明确标注是推导的）",
+    "track_suffix": { "id": "_id", "base": "_base" },
+    "sanitize": ["冒号", "逗号", "尖括号", "路径非法字符", "空白", "超长(>64)"],
+    "conflict_policy": "version(_v2/_v3，默认) | fail | overwrite",
+    "outputs": ["outputName", "fileName", "displayName", "callSyntax", "callSyntaxExample"]
+  },
+  "inference": {
+    "playbook": [
+      { "scene": "解耦自检", "id": 1.0, "base": 0, "expect": "只剩无服装风格的脸" },
+      { "scene": "保脸弱化服装", "id": 1.0, "base": "0.3–0.5" },
+      { "scene": "日常稳定档", "id": 1.0, "base": 0.4 },
+      { "scene": "完全换装", "id": 1.0, "base": "替换 Base 文件" },
+      { "scene": "只保画风弱化角色", "id": "0.2–0.3", "base": "0.5–0.7" },
+      { "scene": "硬上限", "id": 1.0, "base": "不超过 0.7" }
+    ],
+    "syntax": "<lora:名字:权重>"
+  },
+  "acceptance": [
+    "两轨 .safetensors 均生成且在 SD 的 LoRA 目录",
+    "推理时可同时加载 ID 与 Base 两个适配器",
+    "ID=1.0、Base=0.4 时面部稳定、服装画风受控",
+    "Base 归零只加载 ID 时无强烈服装或背景残留",
+    "替换 Base 后 面部无明显变化",
+    "体积符合轻量要求（ID 8–20MB / Base 30–90MB）",
+    "训练无显存溢出与混合精度报错",
+    "标注不含角色名与身份 token",
+    "炼制完无需重启即可在参数表勾选新 LoRA 出图"
+  ],
+  "failure_codes": {
+    "TRAIN_OOM": "显存不足：确认 AdamW8bit + fp16 + enable_bucket + 512；仍不够降 batch_size 或加 --lowvram",
+    "TRAIN_SCRIPT_MISSING": "缺训练脚本：用 GW_TRAIN_SCRIPT 指向 kohya 的 train_network.py",
+    "TRAIN_DEPS_MISSING": "缺 Python 依赖：kohya 环境未装全（bitsandbytes 等）",
+    "TRAIN_LYCON_UNAVAILABLE": "LoCon 不可用：装 lycoris，或把 Base 轨临时降级为 networks.lora",
+    "TRAIN_DATA_ERROR": "数据集读取失败：核对 kohya 目录与图片/标注配对",
+    "LORA_DATASET_INVALID": "训练前硬校验未通过（看 errors 里具体哪一条）",
+    "LORA_PLAN_INVALID": "计划不合法（缺来源 / 未知档位 / datasetRoot 未配置）",
+    "LORA_DELIVER_INCOMPLETE": "产物缺失或投递失败（同名不同体积时不会覆盖已有 LoRA）"
+  },
+  "runtime_layout": {
+    "train_root": ".lora-train（可用 GW_LORA_TRAIN_ROOT 覆盖）",
+    "datasets": "datasets/<名字>/10_<概念>/",
+    "logs": "logs/（失败原因从日志尾部读）",
+    "jobs": "jobs/（sd_train_status 读它）",
+    "registry": "lora-registry.json（成品登记表）"
+  }
+}

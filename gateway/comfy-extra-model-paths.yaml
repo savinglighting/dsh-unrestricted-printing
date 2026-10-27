@@ -1,0 +1,9 @@
+# 2026-10-21 由 dsh-unrestricted-printing 生成：让 ComfyUI 直接读到 A1111（SD.4.8）这边的模型资源
+# 用户要求：LoRA 必开；底模/VAE/embeddings/ControlNet 一并共享（谁在用谁就出现，不会覆盖 ComfyUI 自己的目录）
+a1111_sd48:
+    base_path: D:/SD.4.8/
+    loras: models/Lora
+    checkpoints: models/Stable-diffusion
+    vae: models/VAE
+    embeddings: embeddings
+    controlnet: models/ControlNet

@@ -1,0 +1,97 @@
+{
+  "name": "dsh-unrestricted-printing",
+  "version": "0.0.1",
+  "description": "DeepSeek Harness 插件：本机 Stable Diffusion 生图十二件套（文生图/图生图/蒙版重绘/只生成脚本/双版本对齐脚本/C 档本地注入命令/模型清单/服务管理/完整性检测 + 一键炼制 LoRA 三件：提交/进度/成品清单）+ 本地 AIGC 调度网关（双引擎路由 / 任务状态机 / 单车道队列 / 训练互斥 / OOM 阶梯强杀 / ROS2 监控）+ 双 LoRA 解耦炼制（ID 锁脸 / Base 管画风服装，名字可自定义）+ 违规分流协议 + C 档选项表；C 档蒙版支持鼠标手绘。跨机器零适配——SD 目录自动探测，找不到可一键自举安装，产物目录自动落在会话工作区。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "stable-diffusion",
+    "automatic1111",
+    "txt2img",
+    "img2img",
+    "inpaint",
+    "lora-training",
+    "image-generation",
+    "unrestricted-printing"
+  ],
+  "type": "module",
+  "main": "sd-bridge.js",
+  "files": [
+    "sd-bridge.js",
+    "sd-direct.ps1",
+    "sd-inject.ps1",
+    "sd-auto-mask.py",
+    "sd-addtext-composite.py",
+    "sd-mask-qa.py",
+    "install-sd.ps1",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "INSTALL.md",
+    "LICENSE",
+    "docs/",
+    "LoRA/README.md",
+    "LoRA/configs/",
+    "LoRA/templates/",
+    "LoRA/acceptance/",
+    "LoRA/scripts/",
+    "gateway/",
+    "backend-dispatcher.ps1",
+    "publish-npm.ps1",
+    "manifest.json",
+    "gen-manifest.mjs",
+    "pack-github.ps1",
+    "verify-integrity.mjs",
+    "tests/"
+  ],
+  "scripts": {
+    "test": "node tests/smoke-skill.mjs && node tests/test-install-record.mjs && node tests/test-settings.mjs && node tests/test-install-catalog.mjs && npm run test:gateway",
+    "test:smoke": "node tests/smoke-skill.mjs",
+    "test:gateway": "node --test \"gateway/test/*.test.mjs\"",
+    "test:gateway:ui": "powershell -NoProfile -ExecutionPolicy Bypass -File gateway/tools/ui-gateway-verify.ps1",
+    "gateway": "node gateway/index.js",
+    "gateway:check": "node gateway/index.js --check",
+    "deps:check": "powershell -NoProfile -ExecutionPolicy Bypass -File gateway/tools/check-deps.ps1",
+    "deps:bootstrap": "powershell -NoProfile -ExecutionPolicy Bypass -File gateway/tools/bootstrap-downloads.ps1",
+    "pack:github": "powershell -NoProfile -ExecutionPolicy Bypass -File pack-github.ps1",
+    "lora:pack": "powershell -NoProfile -ExecutionPolicy Bypass -File \"LoRA/scripts/sd-lora-pack.ps1\"",
+    "lora:help": "node gateway/lib/lora-cli.js --help",
+    "test:mask": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-region-mask.ps1",
+    "test:qa": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-mask-qa.ps1",
+    "test:record": "node tests/test-install-record.mjs",
+    "test:settings": "node tests/test-settings.mjs",
+    "test:catalog": "node tests/test-install-catalog.mjs",
+    "acceptance": "node tests/acceptance.mjs",
+    "test:vlm": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-vlm-cleanup.ps1",
+    "test:automask": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-automask-retry.ps1",
+    "test:vram": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-vram-release.ps1",
+    "test:comma": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-trailing-comma.ps1",
+    "manifest": "node gen-manifest.mjs",
+    "manifest:check": "node gen-manifest.mjs --check",
+    "integrity": "node verify-integrity.mjs",
+    "integrity:remote": "node verify-integrity.mjs --remote",
+    "prepublishOnly": "node gen-manifest.mjs && node gen-manifest.mjs --check",
+    "test:lora-name": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/test-lora-name-encoding.ps1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savinglighting/dsh-unrestricted-printing.git"
+  },
+  "homepage": "https://github.com/savinglighting/dsh-unrestricted-printing#readme",
+  "bugs": {
+    "url": "https://github.com/savinglighting/dsh-unrestricted-printing/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

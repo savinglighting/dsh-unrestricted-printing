@@ -1,0 +1,5 @@
+# 统一行尾：源码 LF；PowerShell 脚本保持 CRLF（Windows PowerShell 5.1 兼容）
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary

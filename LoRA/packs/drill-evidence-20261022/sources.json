@@ -1,0 +1,238 @@
+{
+  "role": "url",
+  "destDir": "D:\\DSWorkPlace\\_scratch\\drill\\collected",
+  "minShortSide": 512,
+  "count": 23,
+  "sources": [
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2024/12/18/2022/regular_5d7ca20f866ac207792cea88605b2664.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_5d7ca20f866ac207792cea88605b2664_f27f20446f33.jpg",
+      "bytes": 1380186,
+      "hash": "f27f20446f333a93bb08f79afe8c45540f8b4d6629ad4c748018d23f1506b6ca",
+      "at": "2026-10-21T16:17:13.728Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/10/13/276/regular_a09405d707934370be5afdd8c644e630.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_a09405d707934370be5afdd8c644e630_1aa492699b8f.jpg",
+      "bytes": 957673,
+      "hash": "1aa492699b8fbe45c712f309d81fda18b1479d7018661aa35c0550752f17b29f",
+      "at": "2026-10-21T16:17:14.329Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/10/04/184/regular_66e85025934fa8c28c59af2b2ec2c0f0.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_66e85025934fa8c28c59af2b2ec2c0f0_e8e7d2058ec4.jpg",
+      "bytes": 800792,
+      "hash": "e8e7d2058ec4e58358165dfdd4c6f1f95f97430f9feaa97032099ae4a68a38b1",
+      "at": "2026-10-21T16:17:14.470Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/09/28/578/regular_88e1e0c4624c425462256a352b3a0778.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_88e1e0c4624c425462256a352b3a0778_d6fbe2362a49.jpg",
+      "bytes": 741763,
+      "hash": "d6fbe2362a4902423de981c2ce3dd864c893b257157178894ee7d4df07e3035d",
+      "at": "2026-10-21T16:17:14.640Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/09/11/07/regular_b540d26c75de2780c15a80ea5c05df8c.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_b540d26c75de2780c15a80ea5c05df8c_1a33923a5462.jpg",
+      "bytes": 1105900,
+      "hash": "1a33923a546222367b81e6e27c0bdd14df92165480cdd69102a8d3985493a6c6",
+      "at": "2026-10-21T16:17:14.791Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/08/13/25/regular_67fa55d6b4c23b8dcd60c27484a4ac1b.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_67fa55d6b4c23b8dcd60c27484a4ac1b_10cefcd0d8d2.jpg",
+      "bytes": 858414,
+      "hash": "10cefcd0d8d2cdc2d5857df0c621a4e5bea7ed68dcf2aa49256da1a1f6f587c0",
+      "at": "2026-10-21T16:17:14.949Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/08/07/13/regular_204f217176120b2be180fe4d6a59962b.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_204f217176120b2be180fe4d6a59962b_4f418f399eb1.jpg",
+      "bytes": 818068,
+      "hash": "4f418f399eb15ab71c2b553f20c5b70b5deff7e4bc50ce97931aff2be078bbd3",
+      "at": "2026-10-21T16:17:15.094Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/07/26/07/regular_1e0713ccf98ac66c1e4b2f7aaab02879.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_1e0713ccf98ac66c1e4b2f7aaab02879_38c104028a80.jpg",
+      "bytes": 413927,
+      "hash": "38c104028a80b85034964832a8e9a3a769563f250c04122ca58f39fee88c1c1b",
+      "at": "2026-10-21T16:17:15.243Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/07/05/25/regular_fca89e48e91c2a6278397b24c5775a41.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_fca89e48e91c2a6278397b24c5775a41_99248694f278.jpg",
+      "bytes": 869817,
+      "hash": "99248694f278968663813bff06cbbad836556557d63b7bd68463f092ea9d3434",
+      "at": "2026-10-21T16:17:15.380Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/06/23/09/regular_3d3d736d4965d7c831fded8c98e6ebc7.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_3d3d736d4965d7c831fded8c98e6ebc7_f5e5cbd25ec6.jpg",
+      "bytes": 987978,
+      "hash": "f5e5cbd25ec691a4dfaa39f9a4c2d8d226cabb7b2ae2e49a86948d2513cf091e",
+      "at": "2026-10-21T16:17:15.561Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/05/29/28/regular_91eacec8107adee7aca8037005604016.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_91eacec8107adee7aca8037005604016_133417b93765.jpg",
+      "bytes": 897391,
+      "hash": "133417b937651800a73b08d35d03ce71a351f327b2247897b66a1e21764d22e3",
+      "at": "2026-10-21T16:17:15.707Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/04/21/17/regular_270290c100c5d7a40a01517137d297d3.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_270290c100c5d7a40a01517137d297d3_6b67e10d84f7.jpg",
+      "bytes": 857478,
+      "hash": "6b67e10d84f70152a050d675db6ee8163eb29aa0c0fab0ff65cd02d8d197001a",
+      "at": "2026-10-21T16:17:15.869Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/03/12/19/regular_ff8414232920670822dadc1e3e676d62.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_ff8414232920670822dadc1e3e676d62_6348ef7e8947.jpg",
+      "bytes": 805854,
+      "hash": "6348ef7e8947080896bc48dd01de8f9a6a5807219480012ab47f332f27c9ef12",
+      "at": "2026-10-21T16:17:16.006Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/03/11/01/regular_b80823daf4185b254116df4110af73a5.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_b80823daf4185b254116df4110af73a5_0dfe7eaf391e.jpg",
+      "bytes": 924956,
+      "hash": "0dfe7eaf391e4f6ab6d4a5f0f055e72194ab9284bbe08afc342f7747c01eb52d",
+      "at": "2026-10-21T16:17:16.142Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2026/01/18/24/regular_bc3db2c955ce1440102dd1c01fbe0f84.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_bc3db2c955ce1440102dd1c01fbe0f84_ab15d3830134.jpg",
+      "bytes": 848498,
+      "hash": "ab15d3830134bef85450e5b9449e6df0d1ba45ca40964cb1664ef3465e7d6612",
+      "at": "2026-10-21T16:17:16.295Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/11/30/28/regular_4310060d974f6d3067b4aa135da23a6f.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_4310060d974f6d3067b4aa135da23a6f_6237f2931882.jpg",
+      "bytes": 1011998,
+      "hash": "6237f2931882c7ffcfac12f03f960d2024766bc7c016a15b038bc0f20220c42e",
+      "at": "2026-10-21T16:17:16.454Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/10/27/12/regular_45881b4b4b0f71e084fdc2a124d798db.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_45881b4b4b0f71e084fdc2a124d798db_f3e337963049.jpg",
+      "bytes": 984134,
+      "hash": "f3e337963049d60b78d0fea84f1636e0842a91c2e6a1fa9675266ad1a8996744",
+      "at": "2026-10-21T16:17:16.570Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/09/01/20/regular_43ea1536bacfe402488180358f8c8a17.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_43ea1536bacfe402488180358f8c8a17_807c35603c3a.jpg",
+      "bytes": 733241,
+      "hash": "807c35603c3a46c6ffd71acfa328f0183741a27e2025c78511269fc1716cc6d3",
+      "at": "2026-10-21T16:17:16.700Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/08/16/10/regular_e7dcb0c629ccfb05b5172d66073b514d.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_e7dcb0c629ccfb05b5172d66073b514d_10f6cbfd13d7.jpg",
+      "bytes": 1037257,
+      "hash": "10f6cbfd13d7014e4542cee4d6091401aad51161d94c049a679f80f56ac9c35a",
+      "at": "2026-10-21T16:17:16.842Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/08/09/26/regular_3744fe7a5ff69865bc355993ae8db01c.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_3744fe7a5ff69865bc355993ae8db01c_08e6ee6e2bec.jpg",
+      "bytes": 720846,
+      "hash": "08e6ee6e2bec54a852f439f886e0881bf486d5d539836a74a66edea705b38f9f",
+      "at": "2026-10-21T16:17:16.991Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/07/17/43/regular_585ce44c84137e1d8c0d5b670dd750e3.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_585ce44c84137e1d8c0d5b670dd750e3_e549541bc903.jpg",
+      "bytes": 865281,
+      "hash": "e549541bc903042f7bc45190982d82dbfc96e4938fffe22f9bdcf04364631473",
+      "at": "2026-10-21T16:17:17.111Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/07/17/57/regular_1887481313308f024bb8986f7994ac5c.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_1887481313308f024bb8986f7994ac5c_587a98ea4abc.jpg",
+      "bytes": 813815,
+      "hash": "587a98ea4abc4256eda4f0d2e90cc91336d763fb1d6b1e672e54a0ea619b9a3d",
+      "at": "2026-10-21T16:17:17.267Z"
+    },
+    {
+      "input": "https://cdn.fitacg.com/file/media/wallpaper/2025/07/17/65/regular_524240488b4aa034edce82dcd4df85e1.jpg",
+      "kind": "url",
+      "role": "url",
+      "ok": true,
+      "file": "regular_524240488b4aa034edce82dcd4df85e1_d723b372d0a6.jpg",
+      "bytes": 1085282,
+      "hash": "d723b372d0a6056ded8e835194c834e660eef4226e995f79855bb29b6591a9cf",
+      "at": "2026-10-21T16:17:17.390Z"
+    }
+  ]
+}

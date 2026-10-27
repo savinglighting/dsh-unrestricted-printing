@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-22T07:22:06.470Z",
+  "lora": "<lora:shorekeeper-smoke_id:1.0>",
+  "results": [
+    {
+      "id": "1_original",
+      "label": "原始服装 + 站立（基准）",
+      "prompt": "<lora:shorekeeper-smoke_id:1.0>, 1girl, solo, standing, white dress, long hair, looking at viewer, full body, simple background, masterpiece, best quality",
+      "ok": true,
+      "file": "D:\\DSWorkPlace\\_scratch\\drill\\shorekeeper\\1_original.png",
+      "bytes": 1024105,
+      "ms": 22973
+    },
+    {
+      "id": "2_change_outfit",
+      "label": "换装：骑士铠甲 + 站立",
+      "prompt": "<lora:shorekeeper-smoke_id:1.0>, 1girl, solo, standing, silver knight armor, gauntlets, pauldrons, full body, simple background, masterpiece, best quality",
+      "ok": true,
+      "file": "D:\\DSWorkPlace\\_scratch\\drill\\shorekeeper\\2_change_outfit.png",
+      "bytes": 985277,
+      "ms": 21203
+    },
+    {
+      "id": "3_change_action",
+      "label": "换动作：奔跑 + 原始服装",
+      "prompt": "<lora:shorekeeper-smoke_id:1.0>, 1girl, solo, running, dynamic pose, motion blur, white dress, long hair, full body, simple background, masterpiece, best quality",
+      "ok": true,
+      "file": "D:\\DSWorkPlace\\_scratch\\drill\\shorekeeper\\3_change_action.png",
+      "bytes": 1176395,
+      "ms": 20969
+    }
+  ]
+}

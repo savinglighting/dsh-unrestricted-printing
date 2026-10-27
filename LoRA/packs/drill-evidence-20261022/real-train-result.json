@@ -1,0 +1,27 @@
+{
+  "run": {
+    "ok": true,
+    "results": [
+      {
+        "profile": "id",
+        "name": "shorekeeper-smoke_id",
+        "ok": true,
+        "exitCode": 0,
+        "failure": null,
+        "error": null,
+        "logFile": "D:\\DSWorkPlace\\_scratch\\drill\\kohya-real.log",
+        "pid": null,
+        "taskId": null,
+        "durationMs": 61837,
+        "timedOut": false
+      }
+    ],
+    "errors": []
+  },
+  "artifact": {
+    "ok": true,
+    "file": "D:\\DSWorkPlace\\_scratch\\drill\\ds-smoke\\_output\\shorekeeper-smoke_id\\shorekeeper-smoke_id.safetensors",
+    "name": "shorekeeper-smoke_id",
+    "bytes": 9551416
+  }
+}

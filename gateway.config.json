@@ -1,0 +1,26 @@
+{
+  "_comment": "dsh-unrestricted-printing 网关配置文件（可提交，不含任何密钥）。环境变量优先级高于本文件。",
+  "trainScript": "D:\\kohya_ss\\sd-scripts\\train_network.py",
+  "trainPython": "D:\\kohya_ss\\venv\\Scripts\\python.exe",
+  "baseModelPath": "D:\\SD.4.8\\models\\Stable-diffusion\\AWPainting_v1.2.safetensors",
+  "loraDir": "D:\\SD.4.8\\models\\Lora",
+  "sdDir": "D:\\SD.4.8",
+  "comfyDir": "D:\\ComfyUI",
+  "_comment_vram": "2026-10-26：本机 8GB 卡常驻 SD 后剩余显存通常只有 0.2-1GB。原来准入线 1.5GB 会把每一单都拦进队列（实测 task 一直 queued 不出图）。降到 0.15GB：只拦真正没显存的情况，其余交给 OOM 阶梯自愈。",
+  "vramMinFreeGb": 0.15,
+  "vramWarnFreeGb": 0.5,
+  "strictAdmission": false,
+  "_comment_trainBaselineArgs": "本机 kohya 不认 --lowvram（train_network.py: unrecognized arguments），改用 sdpa + gradient_checkpointing + cache_latents 控显存；num_workers=1 + no_half_vae 规避 Windows DataLoader worker 崩溃与 VAE fp16 NaN",
+  "trainBaselineArgs": [
+    "--optimizer_type=AdamW8bit",
+    "--mixed_precision=fp16",
+    "--enable_bucket",
+    "--save_model_as=safetensors",
+    "--sdpa",
+    "--gradient_checkpointing",
+    "--cache_latents",
+    "--no_half_vae",
+    "--max_data_loader_n_workers=1",
+    "--persistent_data_loader_workers"
+  ]
+}

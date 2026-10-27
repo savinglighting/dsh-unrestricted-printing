@@ -1,0 +1,112 @@
+name: Release（GitHub 打包格式）
+
+# 触发：推 tag（v1.0.5 / v1.0.5-rc1 …）或手动跑
+# 产出（挂到 GitHub Release 当附件）：
+#   1) dsh-unrestricted-printing-<version>.zip      —— 解包即用的插件源码包（装进 node_modules 即可）
+#   2) dsh-unrestricted-printing-<version>.tgz      —— npm pack 产物（npm i -g 用）
+#   3) deps-report.md                          —— 依赖体检报告（CI 上跑一次 check-deps 的结果，方便用户对照装环境）
+# 说明：CI 里没有本机模型/SD/ComfyUI，所以体检报告里这些项会是 ✗/⚠，属于预期——它只是"这张清单"的样例。
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 读取版本号
+        id: ver
+        shell: pwsh
+        run: |
+          $pkg = Get-Content package.json -Raw | ConvertFrom-Json
+          "version=$($pkg.version)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Host "version = $($pkg.version)"
+
+      - name: 门禁：清单一致性 + 语法 + 单测 + 冒烟
+        shell: pwsh
+        run: |
+          node gen-manifest.mjs --check
+          node verify-integrity.mjs
+          node --test "gateway/test/*.test.mjs"
+          node tests/smoke-skill.mjs
+          # PowerShell 语法（PS5.1 解析器；无 BOM 会按 GBK 解码 → 顺带守住了 BOM 纪律）
+          $files = @(Get-ChildItem -Recurse -File -Include *.ps1 | Where-Object { $_.FullName -notmatch '\\node_modules\\' })
+          $bad = 0
+          foreach ($f in $files) {
+            $err = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$null, [ref]$err)
+            if ($err -and $err.Count) { Write-Host "PARSE FAIL: $($f.FullName)"; $err | Select-Object -First 3 | ForEach-Object { Write-Host "  $($_.Message)" }; $bad++ }
+          }
+          if ($bad -gt 0) { throw "有 $bad 个 .ps1 解析失败" }
+          Write-Host "全部门禁通过"
+
+      - name: 依赖体检报告（作为附件，用户可对照）
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -File gateway/tools/check-deps.ps1 -Markdown deps-report.md
+
+      - name: 打源包 zip（解包即用）
+        shell: pwsh
+        run: |
+          $ver = "${{ steps.ver.outputs.version }}"
+          $stage = "dist\dsh-unrestricted-printing-$ver"
+          New-Item -ItemType Directory -Force -Path $stage | Out-Null
+          # 只装"要发给用户的东西"：由 package.json 的 files 决定
+          $files = (Get-Content package.json -Raw | ConvertFrom-Json).files
+          foreach ($f in $files) {
+            $p = $f.TrimEnd('/')
+            if (-not (Test-Path $p)) { Write-Host "跳过不存在的条目: $f"; continue }
+            if ((Get-Item $p).PSIsContainer) {
+              Copy-Item $p -Destination (Join-Path $stage (Split-Path $p -Leaf)) -Recurse -Force
+            } else {
+              Copy-Item $p -Destination $stage -Force
+            }
+          }
+          # 把安装引导与体检报告一起塞进包（GitHub 打包格式的常见做法）
+          Copy-Item INSTALL.md $stage -Force
+          if (Test-Path deps-report.md) { Copy-Item deps-report.md $stage -Force }
+          # 清掉不该进包的（运行产物/缓存）
+          foreach ($junk in @('.sd-inject-iter', 'SD-Picture', '__pycache__', 'ref')) {
+            Get-ChildItem $stage -Recurse -Force -Directory -Filter $junk -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+          }
+          Compress-Archive -Path "$stage\*" -DestinationPath "dist\dsh-unrestricted-printing-$ver.zip" -Force
+          Get-ChildItem dist | Select-Object Name, @{n='MB';e={[math]::Round($_.Length/1MB,2)}}
+
+      - name: npm pack（npm 安装形态）
+        shell: pwsh
+        run: |
+          npm pack
+          Get-ChildItem *.tgz | Select-Object Name, @{n='MB';e={[math]::Round($_.Length/1MB,2)}}
+
+      - name: 创建 / 更新 Release 并附上产物
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $ver = "${{ steps.ver.outputs.version }}"
+          $tag = "${{ github.ref_name }}"
+          if ($tag -notlike 'v*') { $tag = "v$ver" }
+          $notes = "见 CHANGELOG.md 的 $ver 段；安装按 INSTALL.md（含全部需下载项与国内镜像）。"
+          gh release view $tag 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --title "v$ver" --notes $notes
+          }
+          gh release upload $tag "dist\dsh-unrestricted-printing-$ver.zip" --clobber
+          gh release upload $tag "dsh-unrestricted-printing-$ver.tgz" --clobber
+          if (Test-Path deps-report.md) { gh release upload $tag deps-report.md --clobber }
+          gh release view $tag --json assets --jq '.assets[].name'

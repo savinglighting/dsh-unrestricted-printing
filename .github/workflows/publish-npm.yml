@@ -1,0 +1,81 @@
+# npm 发布（Trusted Publishing / OIDC）—— 不需要 token、不需要 OTP
+#
+# 为什么用这个：本账号的 2FA 是安全密钥 / Windows Hello PIN（WebAuthn），
+# npm CLI 只在**交互式终端**里才会弹浏览器批准；命令行里发不了的话，
+# 用「可信发布」让 GitHub Actions 直接发布，全程零验证码、零 token。
+#
+# 一次性配置（在浏览器里做，用 PIN 确认 2FA）：
+#   1) npmjs.com → 你的包 dsh-unrestricted-printing → Settings → Trusted Publisher
+#      → 选 GitHub Actions，填：
+#          Organization or user: savinglighting
+#          Repository:           dsh-unrestricted-printing
+#          Workflow filename:    publish-npm.yml
+#          Environment:          （留空）
+#   2) 之后触发本工作流即可：GitHub → Actions → publish-npm → Run workflow，
+#      或者推一个 v* 标签（如 git tag v0.9.8 && git push origin v0.9.8）。
+#
+# 发布结果会带 provenance 证明（包页可见 Source 链接），比 token 发布更可信。
+#
+# 两个 job 分平台跑（2026-10-15 修）：
+#   test    = windows-latest：install-catalog 的干跑用例直接调 powershell.exe，
+#             只有 Windows runner 能跑全；顺带覆盖 BOM / CRLF / 盘符路径等 Windows 行为。
+#   publish = ubuntu-latest：OIDC 可信发布在 Linux 上最稳。
+
+name: publish-npm
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write        # 可信发布必须：GitHub 用这个 OIDC token 换 npm 的临时凭证
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 装 dev 依赖（设置面板 schema 测试要用到宿主同款 schemastery）
+        # 本机跑测试时 schemastery 来自 DSH profile；CI 里没有宿主，得自己装一份（public npm 有）
+        run: npm install --no-audit --no-fund
+
+      - name: 不出图的测试（不需要本机 SD）
+        run: |
+          node tests/smoke-skill.mjs
+          node tests/test-install-record.mjs
+          node tests/test-settings.mjs
+          node tests/test-install-catalog.mjs
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 升级 npm（可信发布需要 npm >= 11.5.1）
+        # 别用 npm@latest：npm 12 要求 node >= 22.22.2，会在 node 20/较早的 22 上 EBADENGINE
+        run: npm install -g npm@11
+
+      - name: 发布到 npm（无需 NODE_AUTH_TOKEN）
+        # setup-node 会把 NODE_AUTH_TOKEN 设成 GITHUB_TOKEN；留着会让 npm 走 token 认证而不是 OIDC，
+        # 所以显式清空——可信发布靠 id-token: write 换临时凭证。
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ''

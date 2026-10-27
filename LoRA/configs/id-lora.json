@@ -1,0 +1,43 @@
+{
+  "profile": "id",
+  "title": "ID-LoRA（锁身份/面部，低秩）",
+  "role": "identity",
+  "network_module": "networks.lora",
+  "network_args": [],
+  "network_dim": 8,
+  "network_alpha": 16,
+  "learning_rate": 0.00004,
+  "max_train_steps": 500,
+  "resolution": 512,
+  "clip_skip": 2,
+  "optimizer": "AdamW8bit",
+  "optimizer_fallback": "AdamW",
+  "mixed_precision": "fp16",
+  "enable_bucket": true,
+  "save_model_as": "safetensors",
+  "overfit_fallback": {
+    "network_dim": 4,
+    "max_train_steps": 300,
+    "note": "脸像贴图（过拟合）时用这一档"
+  },
+  "guard": {
+    "min_dim": 4,
+    "max_dim": 12,
+    "min_alpha": 1,
+    "max_alpha": 128,
+    "min_lr": 0.00001,
+    "max_lr": 0.0001,
+    "min_steps": 300,
+    "max_steps": 800,
+    "min_resolution": 512,
+    "max_resolution": 512
+  },
+  "dataset": {
+    "images": { "min": 15, "max": 30 },
+    "face_closeup_ratio": { "min": 0.6, "hint": "脸部/头部为主，姿态·角度·光照·表情须有变化，面部保持一致" },
+    "reg_images": { "min": 5, "max": 10 }
+  },
+  "expected_size_mb": { "min": 8, "max": 20 },
+  "infer_weight": { "fixed": 1.0, "min": 1.0, "max": 1.0, "adjustable": false },
+  "caption_rule": "只描述场景与可变元素；禁止角色名 / 身份 token / 触发词 / 作品名 / <lora:> 语法"
+}
