@@ -23,18 +23,26 @@ param(
     [string]$Otp = "",
     [string]$Token = "",
     [string]$Tarball = "",                                  # 留空 = 自动取插件目录里最新的 dsh-unrestricted-printing-*.tgz
-    [string]$PluginDir = "$PSScriptRoot",
+    [string]$PluginDir = "",
     [switch]$DryRun
 )
 
 $ErrorActionPreference = 'Stop'
+
+# param 默认值里 $PSScriptRoot 求值时为空的，只能在主体里定（Windows PowerShell 5.1）
+if (-not $PluginDir) {
+    if ($PSScriptRoot) { $PluginDir = $PSScriptRoot }
+    elseif ($PSCommandPath) { $PluginDir = Split-Path -Parent $PSCommandPath }
+    elseif ($MyInvocation.MyCommand.Path) { $PluginDir = Split-Path -Parent $MyInvocation.MyCommand.Path }
+    else { $PluginDir = (Get-Location).Path }
+}
 
 function Write-Step([string]$Text) { Write-Host "`n=== $Text ===" -ForegroundColor Cyan }
 function Write-Ok([string]$Text) { Write-Host "  [OK] $Text" -ForegroundColor Green }
 function Write-WarnNote([string]$Text) { Write-Host "  [!] $Text" -ForegroundColor Yellow }
 function Fail([string]$Text) { Write-Host "`n[FAIL] $Text" -ForegroundColor Red; exit 1 }
 
-$ver = (Get-Content (Join-Path $PSScriptRoot 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json).version
+$ver = (Get-Content (Join-Path $PluginDir 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json).version
 $isTTY = $true
 try { $isTTY = -not [Console]::IsOutputRedirected } catch { $isTTY = $true }
 
