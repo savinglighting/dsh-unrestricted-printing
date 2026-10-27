@@ -1,7 +1,7 @@
 {
   "name": "dsh-unrestricted-printing",
   "version": "0.0.1",
-  "generatedAt": "2026-10-27T16:02:29.727Z",
+  "generatedAt": "2026-10-27T16:07:26.983Z",
   "fileCount": 115,
   "files": [
     {
@@ -671,8 +671,8 @@
     },
     {
       "path": "publish-npm.ps1",
-      "sha256": "c169adf833f005e39bad245bb6b69f2989a028e63c8403477b24e639510a6f71",
-      "bytes": 6908,
+      "sha256": "b974a8ac79b52f1a36e4bb853493fe31becb6297454fb94659a1cdd373f3a509",
+      "bytes": 6939,
       "category": "runtime",
       "shipped": true
     },

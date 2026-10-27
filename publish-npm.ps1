@@ -23,7 +23,7 @@ param(
     [string]$Otp = "",
     [string]$Token = "",
     [string]$Tarball = "",                                  # 留空 = 自动取插件目录里最新的 dsh-unrestricted-printing-*.tgz
-    [string]$PluginDir = "C:\Users\zhang\.dsh\profiles\desktop\node_modules\dsh-unrestricted-printing",
+    [string]$PluginDir = "$PSScriptRoot",
     [switch]$DryRun
 )
 
@@ -34,7 +34,7 @@ function Write-Ok([string]$Text) { Write-Host "  [OK] $Text" -ForegroundColor Gr
 function Write-WarnNote([string]$Text) { Write-Host "  [!] $Text" -ForegroundColor Yellow }
 function Fail([string]$Text) { Write-Host "`n[FAIL] $Text" -ForegroundColor Red; exit 1 }
 
-$ver = "0.9.14"
+$ver = (Get-Content (Join-Path $PSScriptRoot 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json).version
 $isTTY = $true
 try { $isTTY = -not [Console]::IsOutputRedirected } catch { $isTTY = $true }
 
