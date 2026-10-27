@@ -3,13 +3,13 @@
 [![npm](https://img.shields.io/npm/v/dsh-unrestricted-printing.svg)](https://www.npmjs.com/package/dsh-unrestricted-printing)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/savinglighting/dsh-unrestricted-printing/blob/main/LICENSE)
 
-**DeepSeek Harness 插件 · 本机 Stable Diffusion 生图九件套 + 违规分流协议（A 档 / C 档）· 跨机器零适配**
+**DeepSeek Harness 插件 · 本机生图 + 违规分流协议（A 档 / C 档）· 跨机器零适配**
 
 > **本包原名 `dsh-sd-bridge-guard`（v1.3.0）**，现改名 **`dsh-unrestricted-printing`**，以本仓库独立发布（首发版本 **v0.0.1 测试版**）：
 > 仓库 `savinglighting/dsh-unrestricted-printing`、npm 包 `dsh-unrestricted-printing`。
 > 功能不变，`sd-bridge` 组件 id 不变，旧 profile 配置可继续沿用（详见 [CHANGELOG.md](CHANGELOG.md)）。
 
-让 DeepSeek Harness 直接调用你电脑里的 Stable Diffusion WebUI 生图：不用提前打开 SD（首次调用自动以纯 API 模式拉起）、不用改任何路径——装上插件就能用。
+让 DeepSeek Harness 直接调用你电脑里的 Stable Diffusion WebUI 和 comfyui 生图：不用提前打开 SD（首次调用自动以纯 API 模式拉起）、不用改任何路径——装上插件就能用。
 
 ---
 
